@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Lint YAML files
         run: |
-            find ../.. -type f -name "*.yml" -o -name "*.yaml" | while read filename; do
+            find . -type f \( -name "*.yml" -o -name "*.yaml" \) | while read filename; do
               yamllint "$filename"
               echo The files $filename
             done
