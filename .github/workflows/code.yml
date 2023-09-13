@@ -1,7 +1,10 @@
 name: YAML Linting
 
 on:
-  pull_request_target:
+  pull_request:
+env:
+  main: ${{ github.base_ref }}
+  pr: ${{ github.head_ref }}
 
 jobs:
   lint:
@@ -11,10 +14,12 @@ jobs:
     steps:
       - name: Lint YAML files
         run: |
-            find ../.. -type f -name "*.yml" -o -name "*.yaml" | while read filename; do
+            find . -type f \( -name "*.yml" -o -name "*.yaml" \) | while read filename; do
               yamllint "$filename"
               echo The files $filename
             done
+            echo main br: $main
+            echo pr br: $pr
 
   deploy:
     runs-on: ubuntu-latest
