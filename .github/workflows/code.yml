@@ -5,6 +5,8 @@ on:
 env:
   main: ${{ github.base_ref }}
   pr: ${{ github.head_ref }}
+  url_pr: ${{ github.event.pull_request.html_url }}
+  url_main: ${{ github.event.repository.url }}
 
 
 jobs:
@@ -21,6 +23,8 @@ jobs:
             done
             echo main br: $main
             echo pr br: $pr
+            echo main_url: $url_main
+            echo url_pr: $url_pr
 
   deploy:
     runs-on: ubuntu-latest
