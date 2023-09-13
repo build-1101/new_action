@@ -1,8 +1,8 @@
 name: YAML Linting
 
 on:
+  push:
   pull_request:
-  permission
 
 jobs:
   lint:
