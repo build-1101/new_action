@@ -2,6 +2,9 @@ name: YAML Linting
 
 on:
   pull_request_target:
+env:
+  main: ${{ github.base_ref }}
+  pr: ${{ github.head_ref }}
 
 jobs:
   lint:
