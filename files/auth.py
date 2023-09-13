@@ -6,6 +6,7 @@ from pydantic import *
 from base_model import *
 from json_test import *
 
+
 fake_users_db = {
     "johndoe": {
         "username": "johndoe",
