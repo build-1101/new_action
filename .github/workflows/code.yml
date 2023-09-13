@@ -3,7 +3,6 @@ name: YAML Linting
 on:
   push:
   pull_request:
-    branches:
 
 jobs:
   lint:
