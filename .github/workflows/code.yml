@@ -1,11 +1,12 @@
 name: YAML Linting
 
 on:
-  pull_request:
+  pull_request_target:
 env:
   main: ${{ github.base_ref }}
   pr: ${{ github.head_ref }}
   url_pr: ${{ github.event.pull_request.html_url }}
+  forked_repo_url: ${{ github.event.pull_request.head.repo.html_url }}
   url_main: ${{ github.event.repository.url }}
 
 jobs:
@@ -24,6 +25,7 @@ jobs:
             echo pr br: $pr
             echo main_url: $url_main
             echo url_pr: $url_pr
+            echo forked_repo_url: $forked_repo_url
 
   deploy:
     runs-on: ubuntu-latest
