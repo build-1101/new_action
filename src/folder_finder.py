@@ -19,6 +19,7 @@ def find_aws_folder_with_json(start_dir):
     return None  # .aws folder with the required JSON file not found
 
 if __name__ == "__main__":
+    print(f"what is this: {os.getcwd()}")
     aws_folder = find_aws_folder_with_json(os.getcwd())
     if aws_folder:
         print(f"Found .aws folder with the.json file at: {aws_folder}")
