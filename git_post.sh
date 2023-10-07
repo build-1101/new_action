@@ -9,8 +9,11 @@ file_contents=$(<"$file_path")
 # Escape double quotes and newline characters in the file contents
 escaped_contents=$(echo "$file_contents" | sed 's/"/\\"/g' | awk '{printf "%s\\n", $0}')
 
+echo $escaped_contents
 # Construct the JSON payload with the properly formatted content
 json_payload="{\"body\":\"$escaped_contents\"}"
+
+echo $json_payload > my_file.json
 
 curl -X POST  \
 -H "Accept: application/vnd.github+json" \
